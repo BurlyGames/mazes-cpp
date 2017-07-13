@@ -4,12 +4,14 @@ The Grid object implementation
 
 // A 1D array of Cells is defined as a pointer to an array of Cells (Cell*), and is set to point to array of Cells.
 // A 2D array of Cells is defined as a pointer to a pointer to a Cell (Cell**), and is set to point to array of pointers to Cells.
-// A 3D array of Cells is defined as a pointer to a pointer to to a pointer to a Cell (Cell***), and is set to point to array of pointers to an array of pointers to Cells.
+// A 3D array of Cells is defined as a pointer to a pointer to a pointer to a Cell (Cell***), and is set to point to array of pointers to an array of pointers to Cells.
 // etc..
 
 // NOTE on getting the Dimension sizes at runtime
-// No clear way to get the dimension size of dynamically allocated arrays at runtime.
-// Keep track of the dimensioned size with the object.  Or add an extra element to the array, stash the size at p, and return p+1 to point to the array.
+// There is no clear way to get the dimension size of dynamically allocated arrays at runtime.
+// Options:
+//   - Keep track of the dimensioned size along with the object.
+//   - Or add an extra element to the array, stash the size at p, and return p+1 to point to the array.
 
 // TODO Reimplement this using vectors instead of arrays
 

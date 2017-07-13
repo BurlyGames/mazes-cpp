@@ -3,5 +3,5 @@
 FString DistanceGrid::ContentsOf(Cell* Cell)
 {
 
-	return "   ";
+	return " X ";
 }

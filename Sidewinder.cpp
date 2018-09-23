@@ -23,7 +23,7 @@ Grid* Sidewinder::Process(Grid* grid)
 	// Loop through each Row
 	for (int row = 0; row < grid->NumRows(); row++)
 	{
-		std::vector<Cell*> run;
+		std::vector<Cellz*> run;
 		run.reserve(grid->NumColumns());
 		int32 _runCount = 0;
 
@@ -31,7 +31,7 @@ Grid* Sidewinder::Process(Grid* grid)
 		for (int col = 0; col < grid->NumColumns(); col++)
 		{
 			// Add this cell to the run
-			Cell* cell = &grid->Cells()[row][col];
+			Cellz* cell = &grid->Cells()[row][col];
 
 			run.push_back(cell);
 			_runCount++;
@@ -46,7 +46,7 @@ Grid* Sidewinder::Process(Grid* grid)
 			{
 				// Pick a cell at random from the current "run" and Link it to the North
 				int32 _randomIndex = rand() % _runCount;
-				Cell* target = run.at(_randomIndex);
+				Cellz* target = run.at(_randomIndex);
 
 				if (target->North != NULL)
 				{

@@ -1,5 +1,5 @@
 /*
-The individual Cell object
+The individual Cellz object
 */
 
 #pragma once
@@ -10,28 +10,28 @@ The individual Cell object
 using FString = std::string;
 using int32 = int;
 
-class Cell
+class Cellz
 {
 public:
 
 	// Constructors
-	Cell();
-	Cell(int32 Row, int32 Column, FString Name);
+	Cellz();
+	Cellz(int32 Row, int32 Column, FString Name);
 
 	// Members
 	FString Name;
-	Cell* North;
-	Cell* South;
-	Cell* East;
-	Cell* West;
-	std::vector<Cell*> Links;
-	std::vector<Cell*> Neighbors;
+	Cellz* North;
+	Cellz* South;
+	Cellz* East;
+	Cellz* West;
+	std::vector<Cellz*> Links;
+	std::vector<Cellz*> Neighbors;
 
 	// Methods
-	bool IsLinked(Cell* cell);
-	void Link(Cell* cell);
-	void Unlink(Cell* cell);
-	std::vector<Cell*> GetNeighbors();
+	bool IsLinked(Cellz* cell);
+	void Link(Cellz* cell);
+	void Unlink(Cellz* cell);
+	std::vector<Cellz*> GetNeighbors();
 
 	// Distances GetDistances();
 
@@ -40,9 +40,9 @@ private:
 	int32 _row, _column;
 	FString _name;
 
-	Cell* _north;
-	Cell* _south;
-	Cell* _east;
-	Cell* _west;
+	Cellz* _north;
+	Cellz* _south;
+	Cellz* _east;
+	Cellz* _west;
 };
 

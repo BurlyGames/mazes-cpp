@@ -2,9 +2,9 @@
 
 The Grid object implementation
 
-// A 1D array of Cells is defined as a pointer to an array of Cells (Cell*), and is set to point to array of Cells.
-// A 2D array of Cells is defined as a pointer to a pointer to a Cell (Cell**), and is set to point to array of pointers to Cells.
-// A 3D array of Cells is defined as a pointer to a pointer to a pointer to a Cell (Cell***), and is set to point to array of pointers to an array of pointers to Cells.
+// A 1D array of Cells is defined as a pointer to an array of Cells (Cellz*), and is set to point to array of Cells.
+// A 2D array of Cells is defined as a pointer to a pointer to a Cellz (Cellz**), and is set to point to array of pointers to Cells.
+// A 3D array of Cells is defined as a pointer to a pointer to a pointer to a Cellz (Cellz***), and is set to point to array of pointers to an array of pointers to Cells.
 // etc..
 
 // NOTE on getting the Dimension sizes at runtime
@@ -35,7 +35,7 @@ Grid::Grid(int32 Rows, int32 Columns)
 
 Grid::~Grid()
 {
-	// Deallocate the Cell arrays
+	// Deallocate the Cellz arrays
 	for (int row = 0; row < Grid::_numRows; row++)
 	{
 		delete[] _cells[row];
@@ -43,29 +43,29 @@ Grid::~Grid()
 	delete[] _cells;
 }
 
-// Set up a fresh 2D array of Cell instances
+// Set up a fresh 2D array of Cellz instances
 void Grid::Prepare()
 {
-	_cells = new Cell*[Grid::_numRows];
+	_cells = new Cellz*[Grid::_numRows];
 
 	int32 _roomNumber = 0;
 
-	// Run through each row, create a Cell array for each
+	// Run through each row, create a Cellz array for each
 	for (int row = 0; row < Grid::_numRows; row++)
 	{
-		_cells[row] = new Cell[Grid::_numColumns];
+		_cells[row] = new Cellz[Grid::_numColumns];
 
-		// Initialize each Cell
+		// Initialize each Cellz
 		for (int col = 0; col < Grid::_numColumns; col++)
 		{
-			_cells[row][col] = Cell(row, col, "Room " + std::to_string(_roomNumber++));
+			_cells[row][col] = Cellz(row, col, "Room " + std::to_string(_roomNumber++));
 		}
 	}
 
 	return;
 }
 
-// Tells each Cell who its immediate neighbors are to the north, south, east, and west
+// Tells each Cellz who its immediate neighbors are to the north, south, east, and west
 void Grid::Configure_Cells()
 {
 	for (int row = 0; row < Grid::_numRows; row++)
@@ -101,7 +101,7 @@ void Grid::Configure_Cells()
 	return;
 }
 
-Cell* Grid::GetCell(int32 Row, int32 Column)
+Cellz* Grid::GetCell(int32 Row, int32 Column)
 {
 	return &Grid::_cells[Row][Column];
 }
@@ -111,7 +111,7 @@ int32 Grid::GetGridSize()
 	return _numRows * _numColumns;
 }
 
-FString Grid::ContentsOf(Cell* Cell)
+FString Grid::ContentsOf(Cellz* Cellz)
 {
 	return FString("   ");
 }

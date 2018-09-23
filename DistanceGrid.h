@@ -7,5 +7,5 @@ class DistanceGrid : public Grid
 public:
 	DistanceGrid(int32 Rows, int32 Columns) : Grid(Rows, Columns) {};
 
-	virtual FString DistanceGrid::ContentsOf(Cell* Cell);
+	virtual FString DistanceGrid::ContentsOf(Cellz* Cellz);
 };

@@ -1,7 +1,7 @@
 /*
 
 	BinaryTree maze algorithm
-	Walk each Cell in the Grid one time, establishing either a North or East connection.
+	Walk each Cellz in the Grid one time, establishing either a North or East connection.
 
 	Take in a pointer to a Grid
 	Run the algorithm on the grid and return the pointer
@@ -25,10 +25,10 @@ Grid* BinaryTree::Process(Grid* grid)
 		for (int col = 0; col < grid->NumColumns(); col++)
 		{
 			// Build up a list of the North and East neighbors
-			std::vector<Cell*> _neighbors(4);
+			std::vector<Cellz*> _neighbors(4);
 			int32 _neighborCount = 0;
 
-			Cell* target = &grid->Cells()[row][col];
+			Cellz* target = &grid->Cells()[row][col];
 
 			// If there is a cell to the North, then add it
 			if (grid->Cells()[row][col].North != NULL)
